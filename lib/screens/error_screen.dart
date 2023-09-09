@@ -18,7 +18,7 @@ class _ErrorScreenState extends State<ErrorScreen> {
       children: [
         ElevatedButton.icon(
             onPressed: () {
-              Navigator.pop();
+              Navigator.pop(context);
             },
             icon: const Icon(Icons.arrow_back),
             label: const Text("Go back"))
