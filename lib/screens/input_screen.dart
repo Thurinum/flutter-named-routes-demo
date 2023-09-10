@@ -40,9 +40,6 @@ class _InputScreenState extends State<InputScreen> {
             },
             icon: const Icon(Icons.check),
             label: const Text("Commit my choice")),
-        Container(
-          color: Theme.of(context).colorScheme.primaryContainer,
-        )
       ],
     );
   }
