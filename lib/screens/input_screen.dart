@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:rip_bozo_get_better/components/app_scaffold.dart';
-import 'package:rip_bozo_get_better/screens/result_screen.dart';
 
 import '../main.dart';
 
 class InputScreen extends StatefulWidget {
   const InputScreen({super.key});
-
-  static const String routeName = "/input";
 
   @override
   State<InputScreen> createState() => _InputScreenState();
@@ -38,7 +36,7 @@ class _InputScreenState extends State<InputScreen> {
         const SizedBox(height: 24),
         ElevatedButton.icon(
             onPressed: () {
-              Navigator.pushNamed(context, ResultScreen.routeName(_number));
+              context.go("/result/$_number");
             },
             icon: const Icon(Icons.check),
             label: const Text("Commit my choice")),

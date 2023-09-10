@@ -1,19 +1,18 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rip_bozo_get_better/components/app_scaffold.dart';
 import 'package:rip_bozo_get_better/main.dart';
-import 'package:rip_bozo_get_better/screens/input_screen.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.number});
+  const ResultScreen({super.key, required this.input});
 
-  final int number;
-
-  static String routeName(int number) => "/result/$number";
+  final String input;
 
   @override
   Widget build(BuildContext context) {
+    final int number = int.parse(input); // assuming this always works
     final int randomNumber = Random().nextInt(App.maxNumber - 1);
     final result = number == randomNumber
         ? "✅ You guessed the right number! ✅"
@@ -26,7 +25,7 @@ class ResultScreen extends StatelessWidget {
         const SizedBox(height: 24),
         ElevatedButton.icon(
             onPressed: () {
-              Navigator.pushNamed(context, InputScreen.routeName);
+              context.go("/");
             },
             icon: const Icon(Icons.arrow_back),
             label: const Text("Try again"))
